@@ -1,7 +1,6 @@
 package kz.kayaker.botcore.repository;
 
-import kz.kayaker.botcore.entity.security.Role;
-import kz.kayaker.botcore.entity.security.User;
+import kz.kayaker.botcore.TestData;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -14,14 +13,11 @@ class UserRepositoryTest extends AbstractRepositoryTest {
 
     @Test
     void saveAndLoad() {
-        var user = User.builder()
-                       .username("user")
-                       .password("password")
-                       .role(Role.USER)
-                       .build();
+        var user = TestData.user()
+                           .build();
         userRepository.save(user);
         var loaded = userRepository.findByUsername("user");
-        
+
         assertThat(loaded).isNotEmpty();
         assertThat(loaded.get()
                          .getId()).isNotZero();

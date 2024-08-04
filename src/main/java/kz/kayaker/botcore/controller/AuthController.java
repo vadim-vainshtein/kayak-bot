@@ -24,6 +24,6 @@ public class AuthController {
             @RequestBody AuthRequest authRequest) {
 
         var jwt = authService.authenticate(authRequest.username(), authRequest.password());
-        return ResponseEntity.ok(new AuthResponse(jwt));
+        return ResponseEntity.ok(new AuthResponse(authRequest.username(), jwt));
     }
 }
