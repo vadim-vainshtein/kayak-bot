@@ -52,14 +52,4 @@ public class JWTService {
 
         return extraClaims;
     }
-
-    // TODO: replace deprecated
-    public String extractUsername(String token) {
-        return Jwts.parser()
-                   .setSigningKey(generateSignature())
-                   .build()
-                   .parseSignedClaims(token)
-                   .getPayload()
-                   .getSubject();
-    }
 }
