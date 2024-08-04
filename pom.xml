@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>kz.vainshtein</groupId>
+    <groupId>kz.kayaker</groupId>
     <artifactId>kayak-bot-core</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>kayak-bot-core</name>
