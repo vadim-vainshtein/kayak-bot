@@ -1,6 +1,7 @@
-package kz.vainshtein.kayakbotcore;
+package kz.kayaker.botcore.entity;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -8,8 +9,23 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Entity
+@Table(name = "training")
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class Training {
+    @Id
+    @Column(nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
     private DayOfWeek trainingDay;
+
+    @Column(nullable = false)
     private LocalTime trainingTime;
 
     public Training(int dayOfWeek, int hour, int minute) {
@@ -17,20 +33,6 @@ public class Training {
         trainingTime = LocalTime.of(hour, minute);
     }
 
-    public DayOfWeek getTrainingDay() {
-        return trainingDay;
-    }
 
-    public LocalTime getTrainingTime() {
-        return trainingTime;
-    }
-
-    public void setTrainingDay(int dayOfWeek) {
-        trainingDay = DayOfWeek.of(dayOfWeek);
-    }
-
-    public void setTrainingTime(int hour, int minute) {
-        trainingTime = LocalTime.of(hour, minute);
-    }
 
 }

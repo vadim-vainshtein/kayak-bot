@@ -16,7 +16,7 @@ class UserRepositoryTest extends AbstractRepositoryTest {
         var user = TestData.user()
                            .build();
         userRepository.save(user);
-        var loaded = userRepository.findByUsername("user");
+        var loaded = userRepository.findByUsername(user.getUsername());
 
         assertThat(loaded).isNotEmpty();
         assertThat(loaded.get()
