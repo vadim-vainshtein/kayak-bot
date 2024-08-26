@@ -4,6 +4,7 @@ import kz.kayaker.botcore.service.authentication.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -35,6 +36,10 @@ public class FilterChainConfig {
                                    .hasAnyRole("USER", "ADMIN");
                             request.requestMatchers("/test/admin")
                                    .hasAnyRole(ADMIN.name());
+                            request.requestMatchers(HttpMethod.POST, "/training")
+                                   .hasRole(ADMIN.name());
+                            request.requestMatchers(HttpMethod.GET, "/training")
+                                   .permitAll();
                             request.requestMatchers("/error")
                                    .anonymous();
                             request.anyRequest()

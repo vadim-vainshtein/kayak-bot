@@ -1,4 +1,4 @@
-package kz.kayaker.botcore.service.authentication;
+package kz.kayaker.botcore.service;
 
 
 import kz.kayaker.botcore.dto.TrainingDTO;
