@@ -40,6 +40,10 @@ public class FilterChainConfig {
                                    .hasRole(ADMIN.name());
                             request.requestMatchers(HttpMethod.GET, "/training")
                                    .permitAll();
+                            request.requestMatchers(HttpMethod.POST, "/user_payment")
+                                   .hasRole(ADMIN.name());
+                            request.requestMatchers(HttpMethod.GET, "/user_payment")
+                                   .hasRole(ADMIN.name());
                             request.requestMatchers("/error")
                                    .anonymous();
                             request.anyRequest()
