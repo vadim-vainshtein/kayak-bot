@@ -22,7 +22,7 @@ public class UserPayment {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
-    private User user;
+    private Long userId;
 
     @Column(nullable = false)
     private LocalDate startDate;
@@ -38,5 +38,4 @@ public class UserPayment {
 
     @Column(nullable = false)
     private Boolean paid;
-
 }

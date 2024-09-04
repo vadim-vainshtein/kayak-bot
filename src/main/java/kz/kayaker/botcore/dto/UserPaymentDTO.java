@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 @Data
 public class UserPaymentDTO {
-    private User user;
+    private Long userId;
     private LocalDate startDate;
     private LocalDate endDate;
     private Integer amount;
